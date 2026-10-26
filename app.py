@@ -1,25 +1,21 @@
-app.pyfrom shiny import App, render, ui
+import seaborn as sns
 
-# 1. Define the User Interface (UI)
-app_ui = ui.page_fluid(
-    ui.h2("Simple Shiny Core App"),
-    ui.input_text("name", "Enter your name:", value="World"),
-    ui.output_text_verso("greeting") # or output_text
-)
+# Import data from shared.py
+from shared import df
 
-# Alternative standard output component for text
-app_ui = ui.page_fluid(
-    ui.h2("Simple Shiny Core App"),
-    ui.input_text("name", "Enter your name:", value="World"),
-    ui.output_text("greeting")
-)
+from shiny.express import input, render, ui
 
-# 2. Define the Server Logic
-def server(input, output, session):
-    @output
-    @render.text
-    def greeting():
-        return f"Hello, {input.name()}!"
+ui.page_opts(title="shiny test app for sandboxing in EDITO")
 
-# 3. Combine UI and Server into an App instance
-app = App(app_ui, server)
+with ui.sidebar():
+    ui.input_select("var", "Select variable", choices=["bill_length_mm", "body_mass_g"])
+    ui.input_switch("species", "Group by species", value=True)
+    ui.input_switch("show_rug", "Show Rug", value=True)
+
+
+@render.plot
+def hist():
+    hue = "species" if input.species() else None
+    sns.kdeplot(df, x=input.var(), hue=hue)
+    if input.show_rug():
+        sns.rugplot(df, x=input.var(), hue=hue, color="black", alpha=0.25)
