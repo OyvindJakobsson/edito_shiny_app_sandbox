@@ -1,0 +1,17 @@
+ Hei,
+
+Vedlagt ligger:
+
+    Matlabs-script som sammenligner CTD-profildata med modelldata fra n�rmeste gitterpunkt
+    Figurer som viser resultatene fra Modell-CTD-sammenligningen
+    Artikkel som beskriver analyse av BGC-data for � se p� tidsutviklingen av n�ringssalter i ulike omr�der
+
+
+Fint om du kan bruke dette til � l�re EDITO � kjenne og bygge de f�rste delene til et automatisert modellvalideringsverkt�y. Du trenger en konto p� EDITO. Jeg tror det bare er � be om en konto der, og hvis det ikke g�r m� vi se om vi kan kontakte noen og forklare hva den skal brukes til. Det ligger ogs� flere andre applikasjoner inne p� EDITO som det er mulig � se p� for � se hvordan det fungerer.
+De to datasettene du i f�rste rekke kan se om du kan aksessere for � sammenligne er:
+Modell: ARCTIC_ANALYSISFORECAST_PHY_002_001
+CTD: INSITU_ARC_PHYBGCWAV_DISCRETE_MYNRT_013_031
+
+
+Mvh.
+Vidar
