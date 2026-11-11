@@ -11,11 +11,11 @@ dd3 = find(dyp > 301 & dyp < 801);  % 300-800 dybdeintervall
 dd4 = find(dyp > 801 & dyp < 2001); % 800-2000 dybdeintervall
 delta_s = 0.03;   % Kriterium for MLD
 
-fpath = strcat('/home/vidarli/Prosjekt/Aktive/Copernicus/ARC_MFC/Monthly_Reports/Figures/', ...
+fpath = strcat('/home/a23236/scratch/topas_tmp/figs', ...
     num2str(yr),'/M',num2str(mon,'%2.2d'),'/');
 
 %% *** Laster inn modelldata ***
-mpath = strcat('/home/vidarli/Prosjekt/Aktive/Copernicus/ARC_MFC/Data/CTD_Valid/', ...
+mpath = strcat('/home//home/a23236/scratch/topas_tmp/CTD_Valid/', ...
     num2str(yr),'/M',num2str(mon),'/');
 mfile = strcat(mpath,'TOPAZ_NRT_',num2str(yr),num2str(mon,'%2.2d'),'.nc');
 %mfilet = strcat(mpath,'TOPAZ_NRT_T_',num2str(yr),num2str(mon,'%2.2d'),'.nc');
@@ -44,9 +44,9 @@ if yr == 2017 && mon == 11   % Åpenbar feil i felt/dag 19 i Nov 17'
 end
 
 %% *** Laster inn CTD-data ***
-opath = strcat('/home/vidarli/Prosjekt/Aktive/Copernicus/ARC_MFC/Data/CTD_Valid/', ...
+opath = strcat('/home//home/a23236/scratch/topas_tmp/CTD_Valid/', ...
     num2str(yr),'/M',num2str(mon),'/');
-flist = strcat('/home/vidarli/Prosjekt/Aktive/Copernicus/ARC_MFC/Data/CTD_Valid/', ...
+flist = strcat('/home//home/a23236/scratch/topas_tmp/CTD_Valid/', ...
     num2str(yr),'/M',num2str(mon),'/filelist.txt');
 fid   = fopen(flist);
 F     = textscan(fid,'%s');
@@ -248,7 +248,7 @@ S_rmse(4) = sqrt(nanmean(S_bias(4,:) .* S_bias(4,:)));
 
 %% *** Plotter ***
  
-load /home/vidarli/Data/Nordic_4km/Nordic4km.dat;
+load /home/a23236/scratch/topas_tmp/Nordic4km.dat;
 Lonkyst = Nordic4km(:,1); Latkyst = Nordic4km(:,2);
 ytick = ['  10-100 m';' 100-300 m';' 300-800 m';'800-2000 m'];
 redblue_colormap2;
